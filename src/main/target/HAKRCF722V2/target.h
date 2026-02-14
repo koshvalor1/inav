@@ -158,12 +158,13 @@
 
 
 // *** LED2812 ***
-#define USE_LED_STRIP
-#define WS2811_PIN                      PB3
+//#define USE_LED_STRIP
+//#define WS2811_PIN                      PB3
 
 // *** OTHERS ***
 #define DEFAULT_FEATURES        (FEATURE_TX_PROF_SEL | FEATURE_OSD | FEATURE_CURRENT_METER | FEATURE_VBAT | FEATURE_TELEMETRY | FEATURE_SOFTSERIAL )
 
+#define USE_OPTICAL_FLOW
 
 #define USE_DSHOT
 #define USE_ESC_SENSOR
