@@ -14,7 +14,7 @@ on:
       - 'lib/**'
       - 'docs/Settings.md'
       - 'CMakeLists.txt'
-      - '*.sh'
+   workflow_dispatch:   - '*.sh'
 
   workflow_call:
     #inputs:
