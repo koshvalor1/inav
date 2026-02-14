@@ -1,38 +1,21 @@
-name: Build HAKRC and Simulator
+name: Build Firmware
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Libera o botão "Run workflow"
 
 jobs:
-  # Job 1: Gera o firmware para a placa física
-  build-firmware:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install ARM Toolchain
+      - name: Install Toolchain
         run: sudo apt-get update && sudo apt-get -y install gcc-arm-none-eabi ninja-build
-      - name: Build HAKRCF722V2
+      - name: Build HAKRC F722V2
         run: |
           mkdir build && cd build
           cmake -DTARGET=HAKRCF722V2 -G Ninja ..
           ninja HAKRCF722V2
-      - name: Upload HEX
+      - name: Upload Hex
         uses: actions/upload-artifact@v4
         with:
-          name: Firmware_HAKRC_F722V2
+          name: Firmware_HAKRC
           path: ./build/*.hex
-
-  # Job 2: Gera o Simulador (SITL) para o seu Windows
-  build-SITL:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build SITL
-        run: |
-          mkdir build_sitl; cd build_sitl
-          cmake -DSITL=ON -G "Visual Studio 17 2022" -A x64 ..
-          cmake --build . --config Release
-      - name: Upload Simulator
-        uses: actions/upload-artifact@v4
-        with:
-          name: iNav_SITL_Windows
-          path: build_sitl/Release/*.exe
