@@ -177,5 +177,3 @@
 #define TARGET_IO_PORTD         (BIT(2))
 
 #define MAX_PWM_OUTPUT_PORTS    8
-
-#undef USE_CMS
