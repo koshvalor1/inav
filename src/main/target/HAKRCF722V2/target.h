@@ -166,6 +166,7 @@
 
 #define USE_OPTICAL_FLOW
 #define USE_RANGEFINDER
+#define USE_RANGEFINDER_MSP
 
 #define USE_DSHOT
 #define USE_ESC_SENSOR
@@ -182,3 +183,9 @@
 #undef USE_NAV_LAUNCH
 #undef USE_NAV_WPT
 #undef USE_USB_MSC
+
+#undef USE_BARO_SPL06
+#undef USE_BARO_DPS310
+#undef USE_MAG_AK8975
+#undef USE_MAG_IST8310
+#undef USE_MAG_HMC5883
